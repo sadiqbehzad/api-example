@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="clickCount(1)">+</button>
+    <p id="display">0</p>
+    <button onclick="clickCount(-1)">-</button>
+    <div
+      id="circle"
+      style="
+        width: 5px;
+        height: 5px;
+        border: 1px solid black;
+        background-color: black;
+        transform: translateX(0px);
+        border-radius: 50%;
+      "
+    ></div>
+    <script>
+      let i = 10;
+      function clickCount(num) {
+        let txt = document.getElementById("display");
+        let clickSum = parseInt(txt.innerText) + num;
+        let move = document.getElementById("circle");
+        if (num > 0) {
+          i += 10;
+        } else {
+          i -= 10;
+        }
+
+        move.style.transform = `translateX(${i}px)`;
+        txt.innerText = clickSum;
+        if (clickSum < 0) {
+          txt.innerText = 0;
+        } else if (clickSum > 40) {
+          txt.innerText = 40;
+        }
+      }
+    </script>
+  </body>
+</html>
