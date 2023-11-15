@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getCatFact()">Click for new fact</button>
+    <p id="sss"></p>
+    <script>
+      async function getCatFact() {
+        let respo = await fetch("https://dog-api.kinduff.com/api/facts");
+        let catFact = await respo.json();
+        document.getElementById("sss").innerHTML = catFact.facts[0];
+      }
+    </script>
+  </body>
+</html>
